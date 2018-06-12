@@ -32,9 +32,9 @@ function compileContract(content) {
 	var outputFilePath = outputFolder + "/" + outputContractName + "_flat.sol";//.replace(pathLib.basename(inputFilePath), pathLib.basename(inputFilePath));
 
 	fs.writeFileSync(outputFilePath, content);
-	var solcV011 = solc.setupMethods(require("./bin/soljson-v0.4.11+commit.68ef5810.js"));
-	//var solcV011 = solc.useVersion('v0.4.11+commit.68ef5810');
-	var output = solcV011.compile(content, 1);
+	var solcV024 = solc.setupMethods(require("./bin/soljson-v0.4.24+commit.e67f0147.js"));
+	//var solcV024 = solc.useVersion('v0.4.24+commit.e67f0147');
+	var output = solcV024.compile(content, 1);
 	//console.log(output);
 	for (let contractName in output.contracts) {
 		if (targetContractName.toLowerCase() === contractName.substr(contractName.indexOf(":") + 1).toLowerCase()) {
